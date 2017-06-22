@@ -1,4 +1,4 @@
-install shadowsocks
+# Install shadowsocks-libev
 ```
 $ sudo apt-get install libmbedtls-dev
 $ sudo apt-get install git
@@ -11,4 +11,26 @@ $ cd shadowsocks-libev
 $ git submodule update --init
 $ ./autogen.sh && ./configure && make
 $ sudo make install
+```
+# Create shadowsocks-server.service
+/etc/systemd/system/shadowsocks-server.service
+```
+[Unit]
+Description=Shadowsocks Server
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ss-server -c /etc/shadowsocks/config.json
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+```
+Run command
+```
+systemctl enable shadowsocks-server
+```
+and
+```
+systemctl start shadowsocks-server
 ```
