@@ -13,6 +13,21 @@ $ ./autogen.sh && ./configure && make
 $ sudo make install
 ```
 # Create shadowsocks-server.service
+/etc/shadowsocks/config.json
+```
+{
+    "server":"server ip",
+    "server_port":8388,
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"password",
+    "timeout":300,
+    "method":"rc4-md5",
+    "fast_open": false,
+    "workers": 1
+}
+
+```
 /etc/systemd/system/shadowsocks-server.service
 ```
 [Unit]
