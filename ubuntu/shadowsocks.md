@@ -26,11 +26,4 @@ Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 ```
-Run command
-```
-systemctl enable shadowsocks-server
-```
-and
-```
-systemctl start shadowsocks-server
-```
+Run command `systemctl enable shadowsocks-server` and `systemctl start shadowsocks-server`
