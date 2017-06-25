@@ -1,0 +1,115 @@
+hadoop-env.sh
+```
+export JAVA_HOME=/usr/java/jdk1.7.0_51
+```
+core-site.xml
+```
+<configuration>
+        <property>
+                <name>fs.defaultFS</name>
+                <value>hdfs://node01:9000/</value>
+        </property>
+        <property>
+                <name>hadoop.tmp.dir</name>
+                <value>/home/hduser/hddata/tmp</value>
+        </property>
+        <!--Size of read/write buffer used in SequenceFiles.-->
+        <property>
+                <name>io.file.buffer.size</name>
+                <value>131702</value>
+        </property>
+</configuration>
+```
+hdfs-site.xml
+```
+<configuration>
+        <property>
+                <name>dfs.namenode.name.dir</name>
+                <value>/home/hduser/hddata/name</value>
+        </property>
+        <property>
+                <name>dfs.datanode.data.dir</name>
+                <value>/home/hduser/hddata/data</value>
+        </property>
+        <property>
+                <name>dfs.blocksize</name>
+                <value>268435456</value>
+        </property>
+        <property>
+                <name>dfs.replication</name>
+                <value>3</value>
+        </property>
+        <property>
+                <name>dfs.namenode.handler.count</name>
+                <value>100</value>
+        </property>
+</configuration>
+```
+mapred-site.xml
+```
+<configuration>
+        <property>
+                <name>mapreduce.framework.name</name>
+                <value>yarn</value>
+        </property>
+        <property>
+                <name>mapreduce.map.memory.mb</name>
+                <value>1536</value>
+        </property>
+        <property>
+                <name>mapreduce.reduce.memory.mb</name>
+                <value>3072</value>
+        </property>
+        <property>
+                <name>mapreduce.task.io.sort.mb</name>
+                <value>512</value>
+        </property>
+        <property>
+                <name>mapreduce.map.sort.spill.percent</name>
+                <value>0.80</value>
+        </property>
+        <property>
+                <name>mapreduce.task.io.sort.factor</name>
+                <value>10</value>
+        </property>
+        <property>
+                <name>mapreduce.reduce.shuffle.parallelcopies</name>
+                <value>50</value>
+        </property>
+
+        <!--MapReduce JobHistory Server-->
+        <property>
+                <name>mapreduce.jobhistory.address</name>
+                <value>node01:10020</value>
+                <description>MapReduce JobHistory Server IPC host:port</description>
+        </property>
+        <property>
+                <name>mapreduce.jobhistory.webapp.address</name>
+                <value>node01:19888</value>
+                <description>MapReduce JobHistory Server Web UI host:port</description>
+        </property>
+</configuration>
+```
+yarn-site.xml
+```
+<configuration>
+        <property>
+                <name>yarn.resourcemanager.hostname</name>
+                <value>node01</value>
+        </property>
+        <property>
+                <name>yarn.nodemanager.aux-services</name>
+                <value>mapreduce_shuffle</value>
+        </property>
+        <property>
+                <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+                <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+        </property>
+</configuration>
+```
+slaves
+```
+node01
+node02
+node03
+```
