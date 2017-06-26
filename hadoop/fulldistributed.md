@@ -52,31 +52,6 @@ mapred-site.xml
                 <name>mapreduce.framework.name</name>
                 <value>yarn</value>
         </property>
-        <property>
-                <name>mapreduce.map.memory.mb</name>
-                <value>1536</value>
-        </property>
-        <property>
-                <name>mapreduce.reduce.memory.mb</name>
-                <value>3072</value>
-        </property>
-        <property>
-                <name>mapreduce.task.io.sort.mb</name>
-                <value>512</value>
-        </property>
-        <property>
-                <name>mapreduce.map.sort.spill.percent</name>
-                <value>0.80</value>
-        </property>
-        <property>
-                <name>mapreduce.task.io.sort.factor</name>
-                <value>10</value>
-        </property>
-        <property>
-                <name>mapreduce.reduce.shuffle.parallelcopies</name>
-                <value>50</value>
-        </property>
-
         <!--MapReduce JobHistory Server-->
         <property>
                 <name>mapreduce.jobhistory.address</name>
